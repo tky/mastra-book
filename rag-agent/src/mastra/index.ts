@@ -2,6 +2,7 @@ import { Mastra } from "@mastra/core";
 import { LibSQLVector } from "@mastra/libsql";
 import path from "path";
 import { fileURLToPath } from "url";
+import { ragAgent } from "./agents/rag-agent";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -11,5 +12,6 @@ const libSqlVector = new LibSQLVector({
 });
 
 export const mastra = new Mastra({
+  agents: { ragAgent },
   vectors: { libSqlVector },
 });
