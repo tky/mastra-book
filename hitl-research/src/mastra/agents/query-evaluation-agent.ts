@@ -10,5 +10,5 @@ export const queryEvaluationAgent = new Agent({
 - 検索可能なトピックか（個人情報や非公開情報ではないか）
 追加のコンテキスト情報がある場合は、それも考慮して判断してください。
 `,
-  model: "google/gemini-3.5-flash",
+  model: "google/gemini-3.5-flash-lite",
 });

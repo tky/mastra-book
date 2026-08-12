@@ -24,6 +24,7 @@
     "@mastra/loggers": "^1.2.0",
     "@mastra/memory": "^1.26.1",
     "@mastra/observability": "^1.16.6",
+    "@tavily/core": "^0.7.5",
     "zod": "^4.4.3"
   },
   "devDependencies": {
