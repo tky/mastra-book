@@ -1,4 +1,3 @@
-
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
@@ -10,10 +9,16 @@ import {evaluationAgent} from './agents/evaluation-agent';
 import {learningExtractionAgent} from './agents/learning-extraction-agent';
 import {generateReportWorkflow} from './workflows/generate-report-workflow';
 import {reportAgent} from './agents/report-agent';
+import { MastraJwtAuth } from "@mastra/auth";
 
 export const mastra = new Mastra({
   workflows: { researchWorkflow, generateReportWorkflow },
   agents: { queryEvaluationAgent, researchAgent, evaluationAgent, learningExtractionAgent, reportAgent },
+  server: {
+    auth: new MastraJwtAuth({
+      secret: process.env.MASTRA_JWT_SECRET,
+    }),
+  },
   storage: new LibSQLStore({
     id: "mastra-storage",
     url: "file:../mastra.db",

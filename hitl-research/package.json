@@ -17,6 +17,7 @@
     "node": ">=22.13.0"
   },
   "dependencies": {
+    "@mastra/auth": "^1.0.2",
     "@mastra/core": "^1.58.0",
     "@mastra/duckdb": "^1.6.1",
     "@mastra/evals": "^1.7.0",
