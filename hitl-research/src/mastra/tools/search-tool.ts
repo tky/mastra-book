@@ -36,7 +36,7 @@ export const searchTool = createTool({
         return { results: [], error: "検索結果が見つかりませんでした"};
       }
 
-      const processedResults = response.results.slice(0, 3).map((result) => ({
+      const processedResults = response.results.slice(0, 1).map((result) => ({
         title: result.title || "",
         url: result.url,
         content: result.content ? result.content.substring(0, 1000) : "コンテンツがありません",
