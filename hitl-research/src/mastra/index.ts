@@ -17,6 +17,10 @@ export const mastra = new Mastra({
   server: {
     auth: new MastraJwtAuth({
       secret: process.env.MASTRA_JWT_SECRET,
+      public: [
+          /^\/swagger-ui/,
+          "/api/openapi.json",
+        ],
     }),
   },
   storage: new LibSQLStore({
