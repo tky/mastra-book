@@ -95,7 +95,13 @@ const researchStep = createStep({
         },
       );
 
-      const researchData = result.object;
+      const researchData = result.object ?? {
+        queries: [],
+        searchResults: [],
+        learnings: [],
+        completedQueries: [],
+        phase: "initial" as const,
+      };
       const summary = `Research completed on "${query};" \n\n ${JSON.stringify(researchData, null, 2)} \n\n`;
 
       return {
