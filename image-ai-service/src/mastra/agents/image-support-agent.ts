@@ -1,4 +1,5 @@
 import { Agent } from "@mastra/core/agent";
+import { PLAN_MODELS, type Plan } from "@/lib/plans";
 
 export const imageSupportAgent = new Agent({
   id: "image-support-agent",
@@ -6,5 +7,8 @@ export const imageSupportAgent = new Agent({
   instructions:
     "あなたは画像生成 AI サービスのサポートエージェントです。" +
     "ユーザーの質問に丁寧に答えてください。",
-  model: "google/gemini-3.5-flash-lite",
+  model: ({ requestContext }) => {
+    const plan = (requestContext?.get("plan") as Plan | undefined) ?? "free";
+    return PLAN_MODELS[plan];
+  }
 });
