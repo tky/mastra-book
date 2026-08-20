@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-// import { updateUserPlan } from "@/app/actions";
+import { updateUserPlan } from "@/app/actions";
 
 type TokenUsage = {
   plan: string;
@@ -38,7 +38,7 @@ export default function ChatPage() {
   const handlePlanChange = (newPlan: string) => {
     // startTransition でラップすることで isPending を取得できる
     startTransition(async () => {
-      // await updateUserPlan(newPlan);
+      await updateUserPlan(newPlan);
       setTokenUsage(await fetchTokenUsage());
     });
   };

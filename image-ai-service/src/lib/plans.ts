@@ -1,5 +1,5 @@
 export const PLANS = {
-  free: { label: "Free", monthlyTokenLimit: 100 },
+  free: { label: "Free", monthlyTokenLimit: 100000 },
   pro: { label: "Pro", monthlyTokenLimit: 500000 },
 } as const;
 
